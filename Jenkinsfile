@@ -9,14 +9,14 @@ pipeline {
             steps {
                 echo 'Building...'
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/theside18/cicd-demo.git']]])
-                sh 'mvn clean package'
+                bat 'mvn clean package'
                 echo 'Build completed'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'mvn test'
+                bat 'mvn test'
                 echo 'Testing completed'
             }
         }
